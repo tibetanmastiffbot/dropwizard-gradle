@@ -8,13 +8,15 @@ Because the only thing I hate more than Java is XML.
 
 You need Gradle 1.1 or higher, otherwise you'll run into a [dependency resolution bug](http://issues.gradle.org/browse/GRADLE-2285).
 
-## FatJar
+## OneJar
 
-This example is using the [Gradle FatJar Plugin](https://github.com/musketyr/gradle-fatjar-plugin) which will create
+This example is using the [Gradle OneJar Plugin](https://github.com/rholder/gradle-one-jar) which will create
 a JAR file of the project including all dependencies, similar to the [Maven Assembly Plugin](http://maven.apache.org/plugins/maven-assembly-plugin/)
 or the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/).
 
-To create a fat JAR just run `gradle fatJar`. The resulting JAR will be saved as `./build/libs/dropwizard-gradle-fat.jar`.
+To create a JAR with all dependencies just run `gradle oneJar`. The resulting JAR will be saved as `./build/libs/dropwizard-gradle-standalone.jar`.
+
+You can simply run the application with `java -jar build/libs/dropwizard-gradle-standalone.jar server src/dist/config/helloworld.yml`.
 
 ## Gradle Application Plugin
 

@@ -2,10 +2,10 @@ language: java
 jdk:
   - openjdk7
   - oraclejdk7
-script: ./gradlew -q jar fatJar distZip
+script: ./gradlew -q jar oneJar distZip
 after_script:
   - test -f ./build/libs/dropwizard-gradle.jar
-  - test -f ./build/libs/dropwizard-gradle-fat.jar
+  - test -f ./build/libs/dropwizard-gradle-standalone.jar
   - test -f ./build/distributions/dropwizard-gradle.zip
 install: /bin/true
 notifications:

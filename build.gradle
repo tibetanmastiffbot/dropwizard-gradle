@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'fatjar'
+apply plugin: 'gradle-one-jar'
 apply plugin: 'application'
 
 // Use Java 7 by default
@@ -12,14 +12,14 @@ targetCompatibility = '1.7'
 // The main class of the application
 mainClassName = 'com.example.helloworld.HelloWorldService'
 
-// Add Gradle FatJar Plugin, see https://github.com/musketyr/gradle-fatjar-plugin
+// Add Gradle OneJar Plugin, see https://github.com/rholder/gradle-one-jar
 buildscript {
     repositories {
         mavenCentral()
     }
 
     dependencies {
-        classpath group: 'eu.appsatori', name: 'gradle-fatjar-plugin', version: '0.1.3'
+        classpath 'com.github.rholder:gradle-one-jar:1.0.0'
     }
 }
 
@@ -36,17 +36,9 @@ dependencies {
     compile group: 'com.yammer.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
 }
 
-// Configure the fatJar task
-fatJar {
-    classifier 'fat'
-
-    // We need to add the main class to the manifest, otherwise the JAR won't start.
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-
-    // We have to exclude signature files from the fat JAR, otherwise we'll get invalid signature file digest errors.
-    exclude 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.SF'
+// Configure the oneJar task
+task oneJar(type: OneJar) {
+    mainClass = mainClassName
 }
 
 // Configure the run task to start the Dropwizard service
