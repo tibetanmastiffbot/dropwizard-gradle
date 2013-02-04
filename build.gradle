@@ -19,7 +19,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.github.rholder:gradle-one-jar:1.0.0'
+        classpath 'com.github.rholder:gradle-one-jar:1.0.1'
     }
 }
 
@@ -55,4 +55,8 @@ run {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.4-rc-2'
+}
+
+artifacts {
+    oneJar
 }
