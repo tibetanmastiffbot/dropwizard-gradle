@@ -19,7 +19,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.github.rholder:gradle-one-jar:1.0.1'
+        classpath 'com.github.rholder:gradle-one-jar:1.0.3'
     }
 }
 
