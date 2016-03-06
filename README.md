@@ -26,3 +26,9 @@ To create a distributable ZIP archive including all dependencies for your applic
 resulting archive will be saved as `./build/distributions/dropwizard-gradle.zip`.
 
 You can also use the `run` task to start the application.
+
+    ./gradlew oneJar
+    java -jar build/libs/dropwizard-gradle-standalone.jar server src/dist/config/helloworld.yml
+    
+Then, access ``http://localhost:8081/``
+
