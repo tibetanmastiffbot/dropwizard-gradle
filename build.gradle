@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'gradle-one-jar'
 apply plugin: 'application'
+apply plugin: 'eclipse'
 
 // Use Java 7 by default
 sourceCompatibility = '1.7'
@@ -54,7 +55,7 @@ run {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.4'
+    gradleVersion = '2.11'
 }
 
 artifacts {
